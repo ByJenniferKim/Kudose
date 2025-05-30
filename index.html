@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Kudose</title>
+  <link rel="stylesheet" href="styles/style.css">
+  <link rel="stylesheet" href="styles/auth.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+
+<body>
+  <header class="main-header">
+    <div class="left-section">
+      <a href="index.html" class="logo">Kudose</a>
+      <div class="search-bar">
+        <input type="text" placeholder="Search tags, avatars, assets..." />
+      </div>
+    </div>
+
+    <nav class="main-nav">
+      <a href="#">Marketplace |</a>
+      <a href="#">Support |</a>
+      <a href="apply.html" class="main-nav-link">Apply |</a>
+      <a href="#" class="main-nav-link" onclick="openModal('login')">Login |</a>
+
+    </nav>
+  </header>
+
+      <!-- LOGIN -->
+ <div class="modal-overlay" id="login-modal" style="display: none;">
+  <div class="auth-modal">
+    <button class="close-btn" onclick="closeModal('login')">&times;</button>
+    <div class="auth-header">Log In to Kudose</div>
+    <div class="auth-subtext">Don't have an account? <a href="#" onclick="switchToSignup()">Sign up</a></div>
+
+    <button class="auth-btn discord"><i class="fa-brands fa-discord"></i> Login with Discord</button>
+
+    <div class="divider"><span>or use your email</span></div>
+
+    <label for="login-email">Email</label>
+    <input type="email" id="login-email" name="email" placeholder="you@example.com" required>
+
+    <label for="login-password">Password</label>
+    <input type="password" id="login-password" name="password" placeholder="••••••••" required>
+
+    <button class="submit-btn">Log in →</button>
+
+    <div class="forgot-password"><a href="#">Forgot your password?</a></div>
+  </div>
+</div>
+
+<!-- SIGN UP -->
+ <!-- SIGNUP MODAL -->
+<div class="modal-overlay" id="signup-modal" style="display: none;">
+  <div class="auth-modal">
+    <button class="close-btn" onclick="closeModal('signup')">&times;</button>
+    <div class="auth-header">Sign Up for Kudose</div>
+    <div class="auth-subtext">Already have an account? <a href="#" onclick="switchToLogin()">Log in</a></div>
+
+    <button class="auth-btn discord">
+      <i class="fa-brands fa-discord"></i> Sign up with Discord
+    </button>
+
+    <div class="divider"><span>or use your email</span></div>
+
+    <label for="signup-email">Email</label>
+    <input type="email" id="signup-email" placeholder="you@example.com" required>
+
+    <label for="signup-password">Password</label>
+    <input type="password" id="signup-password" placeholder="••••••••" required>
+
+    <label for="confirm-password">Confirm Password</label>
+    <input type="password" id="confirm-password" name="confirm-password" placeholder="••••••••" required>
+
+    <button class="submit-btn">Sign up →</button>
+  </div>
+</div>
+
+
+  <main>
+    <!-- Promotional Ad Area -->
+    <section class="featured-section">
+      <h2>Featured</h2>
+      <div class="carousel-wrapper">
+        <button class="carousel-btn left" onclick="scrollCarousel(-1)">❮</button>
+        <div class="carousel-track">
+          <!-- Example 12 Tiles -->
+          <div class="promo-tile"><img src="https://avatarfiles.alphacoders.com/893/thumb-350-89303.webp" alt="Ad 1" /></div>
+          <div class="promo-tile"><img src="https://media.tenor.com/K0Op-0SpsvkAAAAj/dudu-cute.gif" alt="Ad 2" /></div>
+          <div class="promo-tile"><img src="https://media.tenor.com/dt0ZDEdvM74AAAAj/dudu-cute-cute-boy.gif" alt="Ad 3" /></div>
+          <div class="promo-tile"><img src="https://media.tenor.com/2SbTAYyUXYYAAAAj/sseeyall-bubu-dudu.gif" alt="Ad 4" /></div>
+          <div class="promo-tile"><img src="https://i.pinimg.com/originals/c5/a9/c2/c5a9c2c7a9a4ab75c9895cfc2a139882.gif" alt="Ad 5" /></div>
+          <div class="promo-tile"><img src="https://media.tenor.com/0JWcKoeZ3kkAAAAj/bubu-bubu-dudu.gif" alt="Ad 6" /></div>
+          <div class="promo-tile"><img src="https://media.tenor.com/wKP-p_HtfOoAAAAe/bubu-dudu.png" alt="Ad 7" /></div>
+          <div class="promo-tile"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/8a/2d/59/8a2d59f3-7cc9-fb54-8e14-a3a68f3204e5/iMessage_App_Icon-0-0-1x_U007emarketing-0-0-85-181.png/512x512bb.jpg" alt="Ad 8" /></div>
+          <div class="promo-tile"><img src="https://i.pinimg.com/originals/75/b6/8c/75b68c8c3167a91e36d6a0858618a4bf.gif" alt="Ad 9" /></div>
+          <div class="promo-tile"><img src="https://i.pinimg.com/originals/2e/9e/33/2e9e3306a7f8733adec6530264e0223d.gif" alt="Ad 10" /></div>
+          <div class="promo-tile"><img src="https://media.tenor.com/TQiss9spQ4MAAAAM/happy-excited.gif" alt="Ad 11" /></div>
+          <div class="promo-tile"><img src="https://i.pinimg.com/736x/2b/62/65/2b6265d2db1c59d7eef82169a4de9d58.jpg" alt="Ad 12" /></div>
+        </div>
+        <button class="carousel-btn right" onclick="scrollCarousel(1)">❯</button>
+      </div>
+    </section>
+
+    <!-- Marketplace Area -->
+    <section class="marketplace-section">
+      <h2>Marketplace</h2>
+      <div class="category-buttons">
+        <a href="#" class="category-tile">Avatars</a>
+        <a href="#" class="category-tile">Assets</a>
+        <a href="#" class="category-tile">Worlds</a>
+        <a href="#" class="category-tile">Particles</a>
+      </div>
+    </section>
+
+    <!-- Feed Area -->
+<section class="feed-section">
+  <h2>Feed</h2>
+
+  <div class="feed-tabs">
+    <button class="tab-btn active" data-tab="feed">For You</button>
+    <button class="tab-btn" data-tab="following">Following</button>
+    <button class="tab-btn" data-tab="subscribed">Subscribed</button>
+  </div>
+
+  <div class="feed-posts tab-content" id="feed-tab">
+            <!-- Feed Post 1 -->
+        <div class="feed-post">
+          <div class="post-header">
+            <img src="https://media.tenor.com/wKP-p_HtfOoAAAAe/bubu-dudu.png" alt="Creator Avatar" class="user-avatar">
+            <p class="username">creator_bubu</p>
+          </div>
+          <a href="product.html">
+            <img src="https://media.tenor.com/dt0ZDEdvM74AAAAj/dudu-cute-cute-boy.gif" alt="Product Preview" class="post-image">
+          </a>
+          <p class="caption">"Check out my new Dudu avatar!"</p>
+          <div class="post-actions">
+            <button class="like-btn" onclick="toggleLike(this)">
+              <i class="fa-regular fa-heart"></i>
+              <span class="like-count">0</span>
+            </button>
+          </div>
+          </div>
+
+        <!-- Feed Post 2 -->
+        <div class="feed-post">
+          <div class="post-header">
+            <img src="https://media.tenor.com/K0Op-0SpsvkAAAAj/dudu-cute.gif" alt="Creator Avatar" class="user-avatar">
+            <p class="username">mochi_girl</p>
+          </div>
+          <a href="product.html">
+            <img src="https://media.tenor.com/TQiss9spQ4MAAAAM/happy-excited.gif" alt="Product Preview" class="post-image">
+          </a>
+          <p class="caption">"Finally launched my spring avatar set!"</p>
+          <div class="post-actions">
+            <button class="like-btn" onclick="toggleLike(this)">
+              <i class="fa-regular fa-heart"></i>
+              <span class="like-count">0</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Feed Post 3 -->
+        <div class="feed-post">
+          <div class="post-header">
+            <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/8a/2d/59/8a2d59f3-7cc9-fb54-8e14-a3a68f3204e5/iMessage_App_Icon-0-0-1x_U007emarketing-0-0-85-181.png/512x512bb.jpg" alt="Creator Avatar" class="user-avatar">
+            <p class="username">ava_shade</p>
+          </div>
+          <a href="product.html">
+            <img src="https://i.pinimg.com/originals/75/b6/8c/75b68c8c3167a91e36d6a0858618a4bf.gif" alt="Product Preview" class="post-image">
+          </a>
+          <p class="caption">"Soft girl vibes only 💖"</p>
+          <div class="post-actions">
+            <button class="like-btn" onclick="toggleLike(this)">
+              <i class="fa-regular fa-heart"></i>
+              <span class="like-count">0</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Feed Post 4 -->
+        <div class="feed-post">
+          <div class="post-header">
+            <img src="https://i.pinimg.com/736x/2b/62/65/2b6265d2db1c59d7eef82169a4de9d58.jpg" alt="Creator Avatar" class="user-avatar">
+            <p class="username">grungepixels</p>
+          </div>
+          <a href="product.html">
+            <img src="https://media.tenor.com/0JWcKoeZ3kkAAAAj/bubu-bubu-dudu.gif" alt="Product Preview" class="post-image">
+          </a>
+          <p class="caption">"Here’s a sneak peek of my upcoming drop!"</p>
+          <div class="post-actions">
+            <button class="like-btn" onclick="toggleLike(this)">
+              <i class="fa-regular fa-heart"></i>
+              <span class="like-count">0</span>
+            </button>
+          </div>
+<!-- Following Posts -->
+<div class="feed-posts tab-content" id="following-tab" style="display: none;">
+  <!-- Example post -->
+  <div class="feed-post">
+    <div class="post-header">
+      <img src="avatar.png" alt="Avatar" class="user-avatar">
+      <p class="username">followed_creator</p>
+    </div>
+    <img src="product.png" class="post-image" alt="Post">
+    <p class="caption">"Only for my followers!"</p>
+    <div class="post-actions">
+      <button class="like-btn"><i class="fa-regular fa-heart"></i><span class="like-count">4</span></button>
+    </div>
+  </div>
+</div>
+
+<!-- Subscribed Posts -->
+<div class="feed-posts tab-content" id="subscribed-tab" style="display: none;">
+  <!-- Example post -->
+  <div class="feed-post">
+    <div class="post-header">
+      <img src="avatar.png" alt="Avatar" class="user-avatar">
+      <p class="username">subbed_creator</p>
+    </div>
+    <img src="product.png" class="post-image" alt="Post">
+    <p class="caption">"Thanks for subscribing!"</p>
+    <div class="post-actions">
+      <button class="like-btn"><i class="fa-regular fa-heart"></i><span class="like-count">12</span></button>
+    </div>
+  </div>
+</div>
+    </section>
+  </main>
+
+  <script src="scripts/app.js"></script>
+  
+  <!-- Login Script -->
+  <script>
+  function openModal(type) {
+    document.getElementById(`${type}-modal`).style.display = 'flex';
+    document.body.style.overflow = 'hidden'; // optional: prevent scrolling
+  }
+
+  function closeModal(type) {
+    document.getElementById(`${type}-modal`).style.display = 'none';
+    document.body.style.overflow = ''; // re-enable scrolling
+  }
+
+  function switchToSignup() {
+    closeModal('login');
+    openModal('signup');
+  }
+</script>
+
+<!-- Sign Up Script -->
+ <script>
+  function openModal(type) {
+    document.getElementById(`${type}-modal`).style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal(type) {
+    document.getElementById(`${type}-modal`).style.display = 'none';
+    document.body.style.overflow = '';
+  }
+
+  function switchToSignup() {
+    closeModal('login');
+    openModal('signup');
+  }
+
+  function switchToLogin() {
+    closeModal('signup');
+    openModal('login');
+  }
+</script>
+
+<!-- Sign Up Confirm Password -->
+ <script>
+  const signupBtn = document.querySelector('#signup-modal .submit-btn');
+
+  if (signupBtn) {
+    signupBtn.addEventListener('click', function () {
+      const pwd = document.getElementById('signup-password').value;
+      const confirmPwd = document.getElementById('confirm-password').value;
+
+      if (pwd !== confirmPwd) {
+        alert('Passwords do not match.');
+      } else {
+        // Proceed with signup logic
+        console.log('Sign up confirmed!');
+      }
+    });
+  }
+</script>
+
+</body>
+</html>

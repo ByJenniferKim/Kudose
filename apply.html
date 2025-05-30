@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Apply as Creator or Showcaser - Kudose</title>
+  <link rel="stylesheet" href="styles/apply.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+    <a href="index.html" class="home-link">Kudose</a>
+    
+  <div class="application-container">
+    <h1>Apply for Creator or Showcaser Role</h1>
+    <form class="application-form" action="#" method="post">
+      
+      <!-- Role Selection -->
+      <label for="role">Which role are you applying for?</label>
+      <select id="role" name="role" required onchange="handleRoleChange()">
+        <option value="">Select one</option>
+        <option value="creator">Creator</option>
+        <option value="showcaser">Showcaser</option>
+      </select>
+
+      <!-- Common Fields -->
+      <label for="vrc-name">VRC Name</label>
+      <input type="text" id="vrc-name" name="vrc-name" required placeholder="Your VRChat username" required />
+
+      <label for="kudose-email">Email</label>
+      <input type="email" id="kudose-email" name="kudose-email" placeholder="you@example.com" required />
+
+      <label for="kudose-username">Kudose Username</label>
+      <input type="text" id="kudose-username" name="kudose-username" required />
+
+      <!-- Creator Only -->
+      <div class="creator-only" style="display: none;">
+        <label for="store-link">
+          Link to a store
+          <span class="tooltip-wrapper">
+            <span class="tooltip-icon">?</span>
+            <span class="tooltip-text">Include a link to your existing avatar or asset store (Gumroad, Booth, etc.)</span>
+          </span>
+        </label>
+        <input type="text" id="store-link" name="store-link" required placeholder="https://yourstore.com" />
+      </div>
+
+      <!-- Showcaser Only -->
+      <div class="showcaser-only" style="display: none;">
+        <label for="referrals">
+          Referrals
+          <span class="tooltip-wrapper">
+            <span class="tooltip-icon">i</span>
+            <span class="tooltip-text">Who referred you? Add VRChat usernames or social handles if applicable.</span>
+          </span>
+        </label>
+        <input type="text" id="referrals" name="referrals" required placeholder="Optional unless referred" />
+      </div>
+
+      <button type="submit" id="submit-btn" disabled style="opacity: 0.5; cursor: not-allowed;">Submit Application</button>
+    </form>
+  </div>
+
+  <script>
+  function handleRoleChange() {
+    const role = document.getElementById("role").value;
+    const creatorFields = document.querySelector(".creator-only");
+    const showcaserFields = document.querySelector(".showcaser-only");
+    const storeInput = document.getElementById("store-link");
+    const referralsInput = document.getElementById("referrals");
+    const submitBtn = document.getElementById("submit-btn");
+
+    // Reset conditional required
+    storeInput.required = false;
+    referralsInput.required = false;
+
+    if (role === "creator") {
+      creatorFields.style.display = "block";
+      showcaserFields.style.display = "none";
+      storeInput.required = true;
+
+      submitBtn.disabled = false;
+      submitBtn.style.opacity = "1";
+      submitBtn.style.cursor = "pointer";
+    } else if (role === "showcaser") {
+      creatorFields.style.display = "none";
+      showcaserFields.style.display = "block";
+      referralsInput.required = true;
+
+      submitBtn.disabled = false;
+      submitBtn.style.opacity = "1";
+      submitBtn.style.cursor = "pointer";
+    } else {
+      creatorFields.style.display = "none";
+      showcaserFields.style.display = "none";
+
+      submitBtn.disabled = true;
+      submitBtn.style.opacity = "0.5";
+      submitBtn.style.cursor = "not-allowed";
+    }
+  }
+</script>
+
+
+</body>
+</html>
